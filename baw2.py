@@ -620,6 +620,7 @@ def giveup():
         where_enemy_turn = "'%s'" %(len(enemy_rows)-1)
 
         cur.execute("UPDATE blackwhite2 SET score=%s WHERE userid!=%s AND channel=%s AND turn=%s;" % ( 10, idid_data, channelchannel_data, where_enemy_turn))
+        db.commit()
         result = "항복하였습니다"
 
     except:
