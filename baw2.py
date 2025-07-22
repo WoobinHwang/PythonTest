@@ -15,8 +15,8 @@ dbname = 'koyebdb'
 user = 'game'
 passwd = 'npg_K3Btm1SLfsdR'
 
-db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
 # db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
+db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
 # cur=db.cursor()
 
 @app.route('/')
@@ -75,7 +75,7 @@ def test():
 # # 채널 접속
 @app.route('/api/enterchannel', methods=['POST'])
 def enterchannel():
-    # db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
+    db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
     cur=db.cursor()
 
     try:
@@ -138,7 +138,7 @@ def enterchannel():
 # # 숫자 제출하기
 @app.route('/api/submitnumber', methods=['POST'])
 def submitnumber():
-    # db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
+    db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
     cur=db.cursor()
 
     try:
@@ -280,7 +280,7 @@ def submitnumber():
 @app.route('/api/initializing', methods=['POST'])
 def initializing():
 
-    # db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
+    db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
     cur=db.cursor()
 
     try:
@@ -320,7 +320,7 @@ def initializing():
 # # 중간에 현재 상황 알림
 @app.route('/api/infomation', methods=['POST'])
 def infomation():
-    # db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
+    db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
     cur=db.cursor()
 
     try:
@@ -406,7 +406,7 @@ def infomation():
 # # 지난 결과 호출
 @app.route('/api/previous', methods=['POST'])
 def previous():
-    # db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
+    db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
     cur=db.cursor()
 
     try:
@@ -526,7 +526,7 @@ def previous():
 # # 다 끝난 후 로그 보여주기
 @app.route('/api/checklog', methods=['POST'])
 def checklog():
-    # db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
+    db = psycopg2.connect(host=host, dbname=dbname,user=user,password= passwd,port=5432)
     cur=db.cursor()
 
     try:
