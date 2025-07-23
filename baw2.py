@@ -464,7 +464,7 @@ def previous():
             cur.execute("SELECT * FROM blackwhite2 WHERE userid=%s AND channel=%s AND turn=%s;" % (idid_data, channelchannel_data, where_user_prev_turn))
             user_previous_rows = cur.fetchone()
             
-            result = "현재 %s라운드 진행중이며\n지난 %s라운드에 상대방이 %s 타일을 제출하여 " %(len(user_rows), len(enemy_rows), tile)
+            result = "현재 %s라운드 진행중이며\n지난 %s라운드에 상대방이 %s 타일을 제출하여 " %(len(user_rows)-1, len(enemy_rows)-1, tile)
             
             if (user_previous_rows[5] > enemy_last_rows[5]):
                 result = result + "내가 이겼습니다."
@@ -479,7 +479,7 @@ def previous():
 
             where_enemy_prev_turn = "'%s'" %(len(enemy_rows)-2)
 
-            cur.execute("SELECT * FROM blackwhite2 WHERE userid=%s AND channel=%s AND turn=%s;" % (idid_data, channelchannel_data, where_enemy_prev_turn))
+            cur.execute("SELECT * FROM blackwhite2 WHERE userid!=%s AND channel=%s AND turn=%s;" % (idid_data, channelchannel_data, where_enemy_prev_turn))
             enemy_previous_rows = cur.fetchone()
 
             # # 상대 타일 재정의
@@ -488,7 +488,7 @@ def previous():
             else:
                 tile = "검은색"
             
-            result = "현재 %s라운드 진행중이며\n지난 %s라운드에 상대방이 %s 타일을 제출하여 " %(len(enemy_rows), len(user_rows), tile)
+            result = "현재 %s라운드 진행중이며\n지난 %s라운드에 상대방이 %s 타일을 제출하여 " %(len(enemy_rows)-1, len(user_rows)-1, tile)
             
             if (user_last_rows[5] > enemy_previous_rows[5]):
                 result = result + "내가 이겼습니다."
